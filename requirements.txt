@@ -1,3 +1,5 @@
 yfinance
 requests
 scipy
+flask
+python-telegram-bot
