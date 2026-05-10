@@ -21,8 +21,8 @@ def home():
 # ==========================================
 # 2. CONFIG AND VARIABLES
 # ==========================================
-TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE"
-TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE"
+TELEGRAM_BOT_TOKEN = "8610364745:AAE7AB9iFaJ2aj2SL87CIAwFdN95SQ3ZXsk"
+TELEGRAM_CHAT_ID = "633682430"
 
 HOLIDAYS_2026 = [
     "2026-05-28",
@@ -225,7 +225,7 @@ def main():
 
     # Send Telegram Message
     if message:
-        url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+        url = f"https://api.telegram.org/bot{8610364745:AAE7AB9iFaJ2aj2SL87CIAwFdN95SQ3ZXsk}/sendMessage"
         data = {"chat_id": TELEGRAM_CHAT_ID, "text": message, "parse_mode": "Markdown"}
         try:
             requests.post(url, data=data)
