@@ -217,18 +217,21 @@ if __name__ == "__main__":
             sleep_sec = (next_run - now).total_seconds()
             time.sleep(sleep_sec)
 
-import http.server
-import socketserver
 import os
+from flask import Flask
 import threading
 
-def run_web():
-    port = int(os.environ.get("PORT", 8000))
-    handler = http.server.SimpleHTTPRequestHandler
-    with socketserver.TCPServer(("", port), handler) as httpd:
-        httpd.serve_forever()
+# Flask web server
+app = Flask(__name__)
 
-# Web server thread start karo (daemon mode mein)
-thread = threading.Thread(target=run_web)
-thread.daemon = True
+@app.route('/')
+def home():
+    return "Bot is alive!"
+
+def run_flask():
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port, debug=False, use_reloader=False)
+
+# Server thread start karo
+thread = threading.Thread(target=run_flask, daemon=True)
 thread.start()
