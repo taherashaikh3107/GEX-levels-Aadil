@@ -217,17 +217,12 @@ if __name__ == "__main__":
             sleep_sec = (next_run - now).total_seconds()
             time.sleep(sleep_sec)
 
-import os
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route('/')
 def home():
     return "Bot is live"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
+    # Yahan dhyan dein: terminal commands (git add etc.) yahan nahi likhne hain
     app.run(host="0.0.0.0", port=port)
 
 git add .
