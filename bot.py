@@ -219,19 +219,18 @@ if __name__ == "__main__":
 
 import os
 from flask import Flask
-import threading
 
-# Flask web server
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Bot is alive!"
+    return "Bot is live"
 
-def run_flask():
-    port = int(os.environ.get("PORT", 8000))
-    app.run(host="0.0.0.0", port=port, debug=False, use_reloader=False)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
 
-# Server thread start karo
-thread = threading.Thread(target=run_flask, daemon=True)
-thread.start()
+git add .
+git commit -m "Added Flask server"
+git push
+
